@@ -1,0 +1,63 @@
+{
+  "name": "xinfuqingshan",
+  "version": "1.0.0",
+  "description": "Collection of vant demos.",
+  "author": "neverland <chenjiahan@neverl.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build:prod": "vue-cli-service build",
+    "build:stage": "vue-cli-service build --mode staging",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "preview": "node build/index.js --preview",
+    "test:unit": "jest --clearCache && vue-cli-service test:unit",
+    "test:ci": "npm run lint && npm run test:unit",
+    "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "mint-ui": "^2.2.13",
+    "moment": "^2.24.0",
+    "qs": "^6.7.0",
+    "vant": "^2.2.0",
+    "vee-validate": "^3.2.1",
+    "vue": "^2.6.10",
+    "vue-baidu-map": "^0.21.22",
+    "vue-router": "^3.0.5",
+    "vuex": "3.1.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.3",
+    "less": "^3.8.1",
+    "less-loader": "^5.0.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "Android >= 4.0",
+    "iOS >= 7"
+  ]
+}
