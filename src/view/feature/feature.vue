@@ -4,7 +4,7 @@
       <van-collapse-item title="镜头类" name="1">
         <van-grid>
           <van-grid-item icon="photo-o" text="照片" />
-          <van-grid-item icon="photo-o" text="二维码" />
+          <van-grid-item to="qrScan" icon="photo-o" text="二维码" />
           <van-grid-item icon="photo-o" text="视频" />
         </van-grid>
       </van-collapse-item>

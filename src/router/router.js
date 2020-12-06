@@ -13,7 +13,7 @@ const routes = [
   },
   {
     name: 'user',
-    component: () => import('@/view/user'),
+    component: () => import('@/view/user/user'),
     meta: {
       title: '会员中心'
     }
@@ -23,6 +23,13 @@ const routes = [
     component: () => import('@/view/cart'),
     meta: {
       title: '购物车'
+    }
+  },
+  {
+    name: 'qrScan',
+    component: () => import('@/view/qrcode/qrcode'),
+    meta: {
+      title: '扫码'
     }
   },
   {
