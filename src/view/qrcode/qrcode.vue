@@ -1,5 +1,6 @@
 <template>
   <div>
+    必须使用https打开本页面
     <p class="error">{{ error }}</p>
 
     <p class="decode-result">Last result: <b>{{ result }}</b></p>

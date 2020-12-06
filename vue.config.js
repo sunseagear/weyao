@@ -5,6 +5,7 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   devServer: {
+    // https: true,
     port: 8088,
     overlay: {
       warnings: false,
@@ -22,5 +23,5 @@ module.exports = {
     //   }
     // },
     // after: require('./mock/mock-server.js')
-  },
+  }
 }

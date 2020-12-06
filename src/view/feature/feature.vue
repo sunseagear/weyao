@@ -1,5 +1,6 @@
 <template>
   <div>
+    <top-title title="模块"/>
     <van-collapse v-model="activeNames">
       <van-collapse-item title="镜头类" name="1">
         <van-grid>
