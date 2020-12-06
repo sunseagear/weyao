@@ -24,9 +24,11 @@
       </van-collapse-item>
       <van-collapse-item title="图表类" name="4">
         <van-grid>
-          <van-grid-item icon="photo-o" text="照片" />
-          <van-grid-item icon="photo-o" text="二维码" />
-          <van-grid-item icon="photo-o" text="视频" />
+          <van-grid-item icon="photo-o" text="line" />
+          <van-grid-item icon="photo-o" text="bar" />
+          <van-grid-item icon="photo-o" text="pie" />
+          <van-grid-item icon="photo-o" text="map" />
+          <van-grid-item icon="photo-o" text="radar" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="地图类" name="5">
