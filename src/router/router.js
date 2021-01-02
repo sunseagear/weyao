@@ -58,13 +58,17 @@ router.beforeEach((to, from, next) => {
   next()
   // console.log('store.getters.userInfo', store.getters.userInfo)
   if (!store.getters.userInfo) {
-    // 不是默认页或者登录页，如果需要登录则进行登录
+    // 不是默认页或者登录页，并且需要登录则进行登录
     if (to.path !== '/' && to.path !== '/login' && (loginFirst || to.meta.needLogin)) {
       store.dispatch('user/getInfo').then(() => {
         // console.log('store.getters.userInfo', store.getters.userInfo)
         if (!store.getters.userInfo) {
           next('/login')
           return
+        }
+        const title = to.meta && to.meta.title
+        if (title) {
+          document.title = title
         }
         next()
       }).catch(() => {
