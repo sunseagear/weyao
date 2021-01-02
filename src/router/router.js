@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '@/store'
 
 Vue.use(Router)
+
+const loginFirst = false
 
 const routes = [
   {
@@ -15,7 +18,8 @@ const routes = [
     name: 'user',
     component: () => import('@/view/user/user'),
     meta: {
-      title: '会员中心'
+      title: '会员中心',
+      needLogin: true
     }
   },
   {
@@ -49,11 +53,28 @@ routes.forEach(route => {
 const router = new Router({ routes })
 
 router.beforeEach((to, from, next) => {
-  const title = to.meta && to.meta.title
-  if (title) {
-    document.title = title
-  }
   next()
+  // console.log('store.getters.userInfo', store.getters.userInfo)
+  if (!store.getters.userInfo) {
+    if ((loginFirst && to.path !== '/' && to.path !== '/login') || ((!loginFirst && to.meta.needLogin))) {
+      store.dispatch('user/getInfo').then(() => {
+        // console.log('store.getters.userInfo', store.getters.userInfo)
+        if (!store.getters.userInfo) {
+          next('/login')
+          return
+        }
+        next()
+      }).catch(() => {
+        next('/login')
+      })
+    }
+  } else {
+    const title = to.meta && to.meta.title
+    if (title) {
+      document.title = title
+    }
+    next()
+  }
 })
 router.afterEach(route => {
   window.scroll(0, 0)
