@@ -4,6 +4,8 @@ import store from '@/store'
 
 Vue.use(Router)
 
+// 全局登录设置，为true的时候，所有页面必须登录 , needLogin字段不起作用
+// 为false 的时候，needLogin字段为true的页面才需要登录
 const loginFirst = false
 
 const routes = [
@@ -56,7 +58,8 @@ router.beforeEach((to, from, next) => {
   next()
   // console.log('store.getters.userInfo', store.getters.userInfo)
   if (!store.getters.userInfo) {
-    if ((loginFirst && to.path !== '/' && to.path !== '/login') || ((!loginFirst && to.meta.needLogin))) {
+    // 不是默认页或者登录页，如果需要登录则进行登录
+    if (to.path !== '/' && to.path !== '/login' && (loginFirst || to.meta.needLogin)) {
       store.dispatch('user/getInfo').then(() => {
         // console.log('store.getters.userInfo', store.getters.userInfo)
         if (!store.getters.userInfo) {
