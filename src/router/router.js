@@ -17,6 +17,13 @@ const routes = [
     }
   },
   {
+    name: 'login',
+    component: () => import('@/view/login/login'),
+    meta: {
+      title: '登录'
+    }
+  },
+  {
     name: 'user',
     component: () => import('@/view/user/user'),
     meta: {
@@ -56,7 +63,7 @@ const router = new Router({ routes })
 
 router.beforeEach((to, from, next) => {
   next()
-  // console.log('store.getters.userInfo', store.getters.userInfo)
+  console.log('store.getters.userInfo', store.getters.userInfo)
   if (!store.getters.userInfo) {
     // 不是默认页或者登录页，并且需要登录则进行登录
     if (to.path !== '/' && to.path !== '/login' && (loginFirst || to.meta.needLogin)) {
