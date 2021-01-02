@@ -1,8 +1,11 @@
-import { fetchDicts } from '@/api/dict'
+import { fetchDicts } from '@/api/system/dict'
 
 const state = {
   dicts: [],
-  defaultPageSize: 25
+  defaultPageSize: 10,
+  // 邀请人员
+  personMessage: [],
+  studyList: { }
 }
 
 const mutations = {
@@ -12,11 +15,25 @@ const mutations = {
   SET_PAGEARRAY: (state, pageArray) => {
     state.pageArray = pageArray
     state.defaultPageSize = pageArray[0]
+  },
+  personMessage: (state, val) => {
+    state.personMessage.push(val)
+  },
+  clearPersonMessage: (state) => {
+    state.personMessage = []
+  },
+  studyList: (state, val) => {
+    state.studyList = val
+    console.log(state.studyList)
+  },
+  clearTtudyList: (state) => {
+    state.studyList = {}
+    console.log(state.studyList)
   }
 }
 const actions = {
   // 获取数据字典
-  GetDicts({ commit, state }) {
+  getDicts({ commit, state }) {
     return new Promise((resolve, reject) => {
       fetchDicts().then(response => {
         const data = response.data.data

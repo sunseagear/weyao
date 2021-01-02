@@ -11,31 +11,31 @@
 
 <script>
 export default {
-  name: 'TopTitle',
+  name: 'NavBar',
   props: {
     title: {
       type: String,
-      default: ""
+      default: ''
     }
   },
   data() {
     return {
       titleData: undefined
-    };
+    }
   },
   mounted() {
     this.titleData = this.title ? this.title : this.$route.meta.title
   },
   methods: {
     onClickLeft() {
-      console.log(this.$route);
-      if (this.$route.path === "/") {
-        this.$router.push({ path: "/binding" });
+      console.log(this.$route)
+      if (this.$route.path === '/') {
+        this.$router.push({ path: '/binding' })
       }
-      this.$router.go(-1); // 返回上一层
+      this.$router.go(-1) // 返回上一层
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>

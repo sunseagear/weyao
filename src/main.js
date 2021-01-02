@@ -6,18 +6,21 @@ import store from '@/store'
 
 import moment from 'moment'
 import * as filters from './filters' // global filters
+// 引入vant懒加载和样式
+import Vant, { Lazyload } from 'vant'
+import 'vant/lib/index.less'
 
-import Vant from 'vant'
-import 'vant/lib/index.css'
+import '@/style/index.less'
+import VsTree from 'vs-tree'
+import 'vs-tree/lib/style/index.css'
+import NavBar from '@/components/navBar/navBar'
 
-import '@/style/index.scss'
-
-import TopTitle from '@/components/topTitle'
-
+Vue.use(VsTree)
+Vue.use(Lazyload)
 Vue.use(Vant)
-Vue.component('top-title', TopTitle)
+Vue.component('nav-bar', NavBar)
 
-store.dispatch('dict/GetDicts').then(() => {
+store.dispatch('dict/getDicts').then(() => {
   console.log('数据字典加载成功...')
 })
 
@@ -42,10 +45,15 @@ Vue.use(BaiduMap, {
   ak: ''
 })
 
+// 自动注册组件
+import { isNull } from '@/utils'
+
 Vue.config.productionTip = false
+Vue.prototype.isNull = isNull
 
 new Vue({
   router,
+  store,
   el: '#app',
   render: h => h(App)
 })

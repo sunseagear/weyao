@@ -17,13 +17,14 @@ module.exports = {
     "vue/max-attributes-per-line": [2, {
       "singleline": 10,
       "multiline": {
-        "maxgetNews": 10,
+        "max": 10,
         "allowFirstLine": true
       }
     }],
+    'space-before-function-paren': 0,
     "vue/html-closing-bracket-newline": "off",
     "vue/singleline-html-element-content-newline": "off",
-    "vue/multiline-html-element-content-newline": "off",
+    "vue/multiline-html-element-content-newline":"off",
     "vue/name-property-casing": ["error", "PascalCase"],
     "vue/no-v-html": "off",
     'accessor-pairs': 2,
@@ -48,7 +49,7 @@ module.exports = {
     'curly': [2, 'multi-line'],
     'dot-location': [2, 'property'],
     'eol-last': 0,
-    'eqeqeq': ["error", "always", { "null": "ignore" }],
+    'eqeqeq': ["error", "always", {"null": "ignore"}],
     'generator-star-spacing': [2, {
       'before': true,
       'after': true
@@ -57,7 +58,7 @@ module.exports = {
     'indent': [2, 2, {
       'SwitchCase': 1
     }],
-    // 'jsx-quotes': [2, 'prefer-single'],
+    'jsx-quotes': [2, 'prefer-single'],
     'key-spacing': [2, {
       'beforeColon': false,
       'afterColon': true
@@ -163,11 +164,11 @@ module.exports = {
       }
     }],
     'padded-blocks': [2, 'never'],
-    // 'quotes': [2, 'single', {
-    //   'avoidEscape': true,
-    //   'allowTemplateLiterals': true
-    // }],
-    // 'semi': [2, 'never'],
+    'quotes': [2, 'single', {
+      'avoidEscape': true,
+      'allowTemplateLiterals': true
+    }],
+    'semi': [2, 'never'],
     'semi-spacing': [2, {
       'before': false,
       'after': true

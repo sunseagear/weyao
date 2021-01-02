@@ -43,6 +43,7 @@ export function parseTime(time, cFormat) {
     }
     return value || 0
   })
+  // console.log(time_str);
   return time_str
 }
 
@@ -361,4 +362,21 @@ export function unescape(html) {
     .replace(/&ldquo;/g, '"')
     .replace(/&rdquo;/g, '"')
     .replace(/&ldquo;/g, '"')
+}
+export function isNull(val) {
+  if (typeof val === 'boolean') {
+    return false
+  }
+  if (typeof val === 'number') {
+    return false
+  }
+  if (val instanceof Array) {
+    if (val.length === 0) return true
+  } else if (val instanceof Object) {
+    if (JSON.stringify(val) === '{}') return true
+  } else {
+    if (val === 'null' || val == null || val === 'undefined' || val === undefined || val === '') return true
+    return false
+  }
+  return false
 }

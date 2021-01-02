@@ -5,7 +5,7 @@ import { Toast } from 'vant'
 // 转换请求方式
 axios.defaults.transformRequest = [function(data) {
   const str = qs.stringify(data, { allowDots: true })
-  console.log('transformRequest', str)
+  // console.log('transformRequest', str)
   return str
 }]
 // create an axios instance
@@ -42,14 +42,14 @@ service.interceptors.response.use(
    * 以下代码均为样例，请结合自生需求加以修改，若不需要，则可删除
    */
   response => {
-    // const res = response.data
-    // if (res.code !== null && res.code !== 0) {
-    //   Toast.fail(res.message)
-    // }
+    const res = response.data
+    if (!res.success) {
+      Toast.fail(res.message)
+    }
     return Promise.resolve(response)
   },
   error => {
-    Toast.fail('链接错误')
+    Toast.fail(error.message)
     return Promise.reject(error)
   }
 )
