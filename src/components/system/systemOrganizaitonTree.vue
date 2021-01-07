@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { relationSwitch } from '@/api/partyBranch/relationSwitch'
+import { fetchOrganizationList } from '@/api/system/organization'
 
 export default {
   name: 'SystemOrganizaitonTree',
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     getOrganization() {
-      relationSwitch().then((data) => {
+      fetchOrganizationList().then((data) => {
         this.list = data.data.data
         console.log(this.columns)
       })

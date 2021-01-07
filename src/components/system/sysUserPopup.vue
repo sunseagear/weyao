@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import { getMemberInform } from '@/api/partyAffairs/MemberInform/MemberInform'
+import { fetchUserList } from '@/api/user/user'
 import { objectMerge } from '@/utils'
 
 export default {
@@ -160,7 +160,7 @@ export default {
     // 获取党员信息列表
     getmemberList() {
       this.listQuery = objectMerge(this.listQuery, this.query)
-      getMemberInform(this.listQuery).then((res) => {
+      fetchUserList(this.listQuery).then((res) => {
         console.log('获取党员列表', res)
         // 如果进入页面page===1 直接赋值
         if (this.listQuery.page === 1) {

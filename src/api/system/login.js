@@ -10,3 +10,11 @@ export function login(data) {
     data
   })
 }
+// 修改密码
+export function changePassword(data) {
+  return request({
+    url: `/json/user/changePassword`,
+    method: 'post',
+    data
+  })
+}

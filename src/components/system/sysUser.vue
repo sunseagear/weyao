@@ -81,9 +81,8 @@
 </template>
 
 <script>
-import { getMemberInform } from '@/api/partyAffairs/MemberInform/MemberInform'
 import { objectMerge } from '@/utils'
-import { personal } from '@/api/user/user'
+import { fetchUserList, getUser } from '@/api/user/user'
 
 export default {
   name: 'SysUser',
@@ -145,7 +144,7 @@ export default {
       if (this.value === undefined) {
         return
       }
-      personal(this.value).then(response => {
+      getUser(this.value).then(response => {
         if (response.data.code === 0) {
           this.username = response.data.data.realname
         }
@@ -173,7 +172,7 @@ export default {
     // 获取党员信息列表
     getmemberList() {
       this.listQuery = objectMerge(this.listQuery, this.query)
-      getMemberInform(this.listQuery).then((res) => {
+      fetchUserList(this.listQuery).then((res) => {
         console.log('获取党员列表', res)
         // 如果进入页面page===1 直接赋值
         if (this.listQuery.page === 1) {
