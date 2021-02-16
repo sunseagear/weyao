@@ -6,6 +6,7 @@
           <van-image :src="image" fit="fill" />
         </van-swipe-item>
       </van-swipe>
+      <date-picker v-model="time"/>
       <van-grid>
         <van-grid-item icon="photo-o" text="文字" />
         <van-grid-item icon="photo-o" text="文字" />
@@ -18,10 +19,13 @@
 </template>
 
 <script>
+import DatePicker from '@/components/picker/datePicker'
 export default {
   name: 'Home',
+  components: { DatePicker },
   data() {
     return {
+      time: undefined,
       active: 0,
       images: [
         'https://img.yzcdn.cn/vant/apple-1.jpg',

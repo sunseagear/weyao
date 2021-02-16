@@ -17,7 +17,7 @@
 import { fetchOrganizationList } from '@/api/system/organization'
 
 export default {
-  name: 'SystemOrganizaitonTree',
+  name: 'SystemOrganizaiton',
   props: {
     value: {
       type: String,

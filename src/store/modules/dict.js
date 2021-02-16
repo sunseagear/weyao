@@ -15,20 +15,6 @@ const mutations = {
   SET_PAGEARRAY: (state, pageArray) => {
     state.pageArray = pageArray
     state.defaultPageSize = pageArray[0]
-  },
-  personMessage: (state, val) => {
-    state.personMessage.push(val)
-  },
-  clearPersonMessage: (state) => {
-    state.personMessage = []
-  },
-  studyList: (state, val) => {
-    state.studyList = val
-    console.log(state.studyList)
-  },
-  clearTtudyList: (state) => {
-    state.studyList = {}
-    console.log(state.studyList)
   }
 }
 const actions = {
@@ -40,6 +26,9 @@ const actions = {
         const value = []
         data['page'].forEach((row) => {
           value.push(Number.parseInt(row.value))
+        })
+        data.forEach(item => {
+          item.text = item.label
         })
         commit('SET_DICTS', data)
         commit('SET_PAGEARRAY', value)

@@ -11,21 +11,21 @@ const loginFirst = false
 const routes = [
   {
     name: '/',
-    component: () => import('@/view/index'),
+    component: () => import('@/views/index'),
     meta: {
       title: '首页'
     }
   },
   {
     name: 'login',
-    component: () => import('@/view/login/login'),
+    component: () => import('@/views/login/login'),
     meta: {
       title: '登录'
     }
   },
   {
     name: 'user',
-    component: () => import('@/view/user/user'),
+    component: () => import('@/views/user/user'),
     meta: {
       title: '会员中心',
       needLogin: true
@@ -33,21 +33,21 @@ const routes = [
   },
   {
     name: 'cart',
-    component: () => import('@/view/cart'),
+    component: () => import('@/views/cart'),
     meta: {
       title: '购物车'
     }
   },
   {
     name: 'qrScan',
-    component: () => import('@/view/qrcode/qrcode'),
+    component: () => import('@/views/qrcode/qrcode'),
     meta: {
       title: '扫码'
     }
   },
   {
     name: 'goods',
-    component: () => import('@/view/goods'),
+    component: () => import('@/views/goods'),
     meta: {
       title: '商品详情'
     }
