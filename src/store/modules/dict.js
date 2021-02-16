@@ -27,8 +27,10 @@ const actions = {
         data['page'].forEach((row) => {
           value.push(Number.parseInt(row.value))
         })
-        data.forEach(item => {
-          item.text = item.label
+        Object.keys(data).forEach(key => {
+          data[key].forEach(item => {
+            item.text = item.label
+          })
         })
         commit('SET_DICTS', data)
         commit('SET_PAGEARRAY', value)

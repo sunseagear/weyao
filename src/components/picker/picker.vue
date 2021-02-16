@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-field v-model="currentData" :label="label" :style="{width: width}" right-icon="calendar-o" readonly @click="dialogFormVisible = true"/>
+    <van-field v-model="currentData" :label="label" :style="{width: width}" :right-icon="rightIcon" readonly @click="dialogFormVisible = true"/>
     <van-popup v-model="dialogFormVisible" :title="label" round position="bottom" style="height: 50vh">
       <div ref="container">
         <van-picker
@@ -17,6 +17,8 @@
 
 <script>
 
+import { deepClone } from '@/utils'
+
 export default {
   name: 'Picker',
   props: {
@@ -26,7 +28,11 @@ export default {
     },
     label: {
       type: String,
-      default: '时间选择'
+      default: '选择器'
+    },
+    rightIcon: {
+      type: String,
+      default: 'arrow'
     },
     width: {
       type: String,
@@ -39,10 +45,7 @@ export default {
       }
     },
     props: {
-      type: {
-        text: String,
-        value: String
-      },
+      type: Object,
       default: undefined
     }
   },
@@ -76,8 +79,8 @@ export default {
             this.list = this.columns
           } else {
             this.list = []
-            this.columns.forEach(column => {
-              const item = {}
+            val.forEach(column => {
+              const item = deepClone(column)
               item.text = column[this.props.text]
               item.value = column[this.props.value]
               this.list.push(item)
@@ -89,8 +92,8 @@ export default {
   },
   methods: {
     confirm(value) {
-      this.currentData = this.list[value].text
-      this.$emit('input', this.list[value].value)
+      this.currentData = value.text
+      this.$emit('input', value.value)
       this.dialogFormVisible = false
     }
   }
