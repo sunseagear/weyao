@@ -1,5 +1,6 @@
 <template>
   <div>
+    <van-field v-model="username" :label="label" :style="{width: width}" right-icon="search" readonly @click="dialogFormVisible = true"/>
     <van-popup v-model="dialogFormVisible" :title="label" round closeable position="bottom" style="height: 80vh">
       <div ref="container">
         <van-search
@@ -80,12 +81,16 @@
 </template>
 
 <script>
-import { fetchUserList } from '@/api/user/user'
 import { objectMerge } from '@/utils'
+import { fetchUserList, getUser } from '@/api/system/user'
 
 export default {
-  name: 'SysUserPopup',
+  name: 'SysUser',
   props: {
+    value: {
+      type: String,
+      default: undefined
+    },
     label: {
       type: String,
       default: '用户选择'
@@ -99,20 +104,16 @@ export default {
       default() {
         return {}
       }
-    },
-    value: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
     return {
-      dialogFormVisible: false,
       container: null,
+      dialogFormVisible: false,
       username: undefined,
-      Phoneicon: require('@/assets/affairs/iphone.png'),
-      department: require('@/assets/affairs/department.png'),
-      position: require('@/assets/affairs/position.png'),
+      Phoneicon: require('@/assets/iphone.png'),
+      department: require('@/assets/department.png'),
+      position: require('@/assets/position.png'),
       search: '', // 搜索框内输入的值
       memberList: [], // 获取的列表
       loading: false,
@@ -129,7 +130,7 @@ export default {
     value: {
       immediate: true,
       handler(val) {
-        this.dialogFormVisible = val
+        this.getUserInfo()
       }
     }
   },
@@ -138,10 +139,21 @@ export default {
     this.getmemberList()
   },
   methods: {
+    getUserInfo() {
+      this.username = undefined
+      if (this.value === undefined) {
+        return
+      }
+      getUser(this.value).then(response => {
+        if (response.data.code === 0) {
+          this.username = response.data.data.realname
+        }
+      })
+    },
     select(row) {
+      this.$emit('input', row.id)
+      this.username = row.realname
       this.dialogFormVisible = false
-      this.$emit('input', false)
-      this.$emit('onSelect', row)
     },
 
     // 搜索查询

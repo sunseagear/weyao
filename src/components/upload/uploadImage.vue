@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { fileUpload } from '@/api/index'
+import { fileUpload } from '@/api/system/oss'
 import { Notify } from 'vant'
 
 export default {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-field v-model="currentDateStr" :label="label" :style="{width: width}" right-icon="calendar-o" readonly @click="dialogFormVisible = true"/>
+    <van-field v-model="currentDateStr" :label="label" :style="{width: width}" :placeholder="placeholder" right-icon="calendar-o" readonly @click="dialogFormVisible = true"/>
     <van-popup v-model="dialogFormVisible" :title="label" round position="bottom" style="height: 50vh">
       <div ref="container">
         <van-datetime-picker
@@ -27,6 +27,10 @@ export default {
     value: {
       type: String,
       default: undefined
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     pattern: {
       type: String,

@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       text: undefined,
+      text1: undefined,
       time: undefined,
       active: 0,
       images: [
