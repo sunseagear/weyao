@@ -1,21 +1,24 @@
 <template>
-  <div>
-    <van-field v-if="showText" v-model="location" />
-    <van-button v-if="showText" type="primary" @click="addPath">数据画点</van-button>
-    <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @click="getClickInfo">
-      <bm-marker
-        v-if="point.lng"
-        :position="{lng:point.lng, lat: point.lat}"
-        :dragging="true"
-      >
-        <bm-label
-          :label-style="{color: 'red', fontSize : '14px'}"
-          :offset="{width: 20, height: -15}"
-          content="当前位置"
-        />
-      </bm-marker>
-    </baidu-map>
-  </div>
+  <van-field v-model="location" :placeholder="placeholder" :label="label" >
+    <template #input>
+      <div style="width: 100%">
+        <van-button v-if="showText" type="primary" @click="addPath">数据画点</van-button>
+        <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @click="getClickInfo">
+          <bm-marker
+            v-if="point.lng"
+            :position="{lng:point.lng, lat: point.lat}"
+            :dragging="true"
+          >
+            <bm-label
+              :label-style="{color: 'red', fontSize : '14px'}"
+              :offset="{width: 20, height: -15}"
+              content="当前位置"
+            />
+          </bm-marker>
+        </baidu-map>
+      </div>
+    </template>
+  </van-field>
 
 </template>
 
@@ -26,6 +29,14 @@ export default {
     value: {
       type: String,
       default: undefined
+    },
+    label: {
+      type: String,
+      default: undefined
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     center: {
       type: [Object, String],
@@ -45,7 +56,7 @@ export default {
     },
     showText: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {
