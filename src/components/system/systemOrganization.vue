@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <van-field :rules="[{ required: true }]" v-model="name" :placeholder="placeholder" :label="label" :style="{width: width}" right-icon="search" readonly @click="dialogFormVisible = true" />
+    <van-field v-model="name" :rules="rules" :placeholder="placeholder" :label="label" :style="{width: width}" right-icon="search" readonly @click="dialogFormVisible = true" />
     <van-popup v-model="dialogFormVisible" :style="{ height: '50%' }" round closeable close-icon="cross" position="bottom">
       <span class="headline">{{ headline }}</span>
       <span class="confirm" @click="ensure">确认</span>
@@ -26,6 +26,12 @@ export default {
     label: {
       type: String,
       default: '所属机构'
+    },
+    rules: {
+      type: Object,
+      default: function() {
+        return []
+      }
     },
     width: {
       type: String,

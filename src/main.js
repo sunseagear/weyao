@@ -15,6 +15,9 @@ import VsTree from 'vs-tree'
 import 'vs-tree/lib/style/index.css'
 import NavBar from '@/components/navBar/navBar'
 
+import { isNull } from '@/utils'
+import formValidate from '@/utils/formValidate'
+
 Vue.use(VsTree)
 Vue.use(Lazyload)
 Vue.use(Vant)
@@ -45,8 +48,7 @@ Vue.use(BaiduMap, {
   ak: ''
 })
 
-// 自动注册组件
-import { isNull } from '@/utils'
+Vue.prototype.formValidate = formValidate
 
 Vue.config.productionTip = false
 Vue.prototype.isNull = isNull

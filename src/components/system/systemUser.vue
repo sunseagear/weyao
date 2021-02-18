@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-field v-model="username" :placeholder="placeholder" :label="label" :style="{width: width}" right-icon="search" readonly @click="dialogFormVisible = true"/>
+    <van-field v-model="username" :rules="rules" :placeholder="placeholder" :label="label" :style="{width: width}" right-icon="search" readonly @click="dialogFormVisible = true"/>
     <van-popup v-model="dialogFormVisible" :title="label" round closeable position="bottom" style="height: 80vh">
       <div ref="container">
         <van-search
@@ -90,6 +90,12 @@ export default {
     value: {
       type: String,
       default: undefined
+    },
+    rules: {
+      type: Object,
+      default: function() {
+        return []
+      }
     },
     placeholder: {
       type: String,
