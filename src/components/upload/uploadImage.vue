@@ -13,7 +13,7 @@ export default {
   props: {
     value: {
       type: String,
-      required: true
+      default: undefined
     },
     uploadIcon: {
       type: String,

@@ -92,7 +92,7 @@ export default {
       default: undefined
     },
     rules: {
-      type: Object,
+      type: Array,
       default: function() {
         return []
       }

@@ -28,7 +28,7 @@ export default {
       default: '所属机构'
     },
     rules: {
-      type: Object,
+      type: Array,
       default: function() {
         return []
       }
