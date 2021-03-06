@@ -51,13 +51,6 @@ const routes = [
     meta: {
       title: '商品详情'
     }
-  },
-  {
-    name: 'event',
-    component: () => import('@/views/biz/event/eventForm'),
-    meta: {
-      title: '商品详情'
-    }
   }
 ]
 
