@@ -1,6 +1,11 @@
 <template>
   <div>
-    <van-uploader v-model="fileList" :capture="capture" :before-read="beforeRead" :after-read="afterRead" :max-count="maxCount" :upload-icon="uploadIcon" @delete="remove"/>
+    <van-field :rules="rules" :label="label" :style="{width: width}" name="username">
+      <template #input>
+        <van-uploader v-model="fileList" :capture="capture" :before-read="beforeRead" :after-read="afterRead" :max-count="maxCount" :upload-icon="uploadIcon" @delete="remove"/>
+      </template>
+    </van-field>
+
   </div>
 </template>
 
@@ -14,6 +19,16 @@ export default {
     value: {
       type: String,
       default: undefined
+    },
+    label: {
+      type: String,
+      default: '图片上传'
+    },
+    rules: {
+      type: Array,
+      default: function() {
+        return []
+      }
     },
     uploadIcon: {
       type: String,

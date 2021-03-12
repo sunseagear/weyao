@@ -40,8 +40,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "less": "^3.8.1",
     "less-loader": "^5.0.0",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
