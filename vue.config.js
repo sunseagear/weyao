@@ -1,3 +1,4 @@
+const path = require('path')
 module.exports = {
   outputDir: 'dist',
   // publicPath: process.env.NODE_ENV === 'production' ? '/vant-demo/' : '/'
@@ -28,19 +29,10 @@ module.exports = {
     loaderOptions: {
       less: {
         modifyVars: {
-          'nav-bar-background-color': '#e5433e',
-          'nav-bar-text-color': '#fff',
-          'nav-bar-title-text-color': '#fff',
-          'nav-bar-icon-color': '#fff',
-          'divider-margin': '0px',
-          'button-border-radius': '5px',
-          'button-default-color': '#fff',
-          'button-default-background-color': '#e5433e',
-          'button-default-border-color': '#e5433e',
-          'checkbox-checked-icon-color': '#e5433e'
-          // 'font-size-sm': '13px',
-          // 'font-size-md': '15px',
-          // 'font-size-lg': '17px',
+          hack: `true; @import "${path.join(
+            __dirname,
+            './src/style/vantStyle.less'
+          )}";`
         }
       }
     }
