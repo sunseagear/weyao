@@ -18,9 +18,12 @@
       </van-collapse-item>
       <van-collapse-item title="展示类" name="3">
         <van-grid>
-          <van-grid-item icon="photo-o" text="照片" />
-          <van-grid-item icon="photo-o" text="二维码" />
-          <van-grid-item icon="photo-o" text="视频" />
+          <van-grid-item icon="photo-o" text="侧边栏" />
+          <van-grid-item icon="photo-o" text="骨架屏" />
+          <van-grid-item icon="photo-o" text="步骤条" />
+          <van-grid-item icon="photo-o" text="属性选择" />
+          <van-grid-item icon="photo-o" text="瀑布流" />
+          <van-grid-item icon="photo-o" text="列表详情(滑动删除)" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="图表类" name="4">
@@ -34,16 +37,17 @@
       </van-collapse-item>
       <van-collapse-item title="地图类" name="5">
         <van-grid>
-          <van-grid-item icon="photo-o" text="照片" />
-          <van-grid-item icon="photo-o" text="二维码" />
-          <van-grid-item icon="photo-o" text="视频" />
+          <van-grid-item icon="photo-o" text="地图打点" />
+          <van-grid-item icon="photo-o" text="地图画框" />
+          <van-grid-item icon="photo-o" text="地图画线" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="对接类" name="6">
         <van-grid>
-          <van-grid-item icon="photo-o" text="照片" />
-          <van-grid-item icon="photo-o" text="二维码" />
-          <van-grid-item icon="photo-o" text="视频" />
+          <van-grid-item icon="photo-o" text="微信登录" />
+          <van-grid-item icon="photo-o" text="微信支付" />
+          <van-grid-item icon="photo-o" text="微信扫码" />
+          <van-grid-item icon="photo-o" text="微信分享" />
         </van-grid>
       </van-collapse-item>
     </van-collapse>
