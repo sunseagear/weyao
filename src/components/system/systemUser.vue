@@ -58,17 +58,6 @@
                       <span class="usertext">{{ item.organization.label }}</span>
                     </van-col>
                   </van-row>
-                  <!-- 职位 -->
-                  <van-row>
-                    <van-col span="2">
-                      <van-image :src="position" />
-                    </van-col>
-                    <van-col>
-                      <span class="usertext">
-                        {{ item.userPosition | dictLabel("userPosition") }}
-                      </span>
-                    </van-col>
-                  </van-row>
                 </van-col>
               </van-row >
             </van-cell>
@@ -182,8 +171,8 @@ export default {
     // 获取党员信息列表
     getmemberList() {
       this.listQuery = objectMerge(this.listQuery, this.query)
+      console.log('this.ListQuery', this.listQuery)
       fetchUserList(this.listQuery).then((res) => {
-        console.log('获取党员列表', res)
         // 如果进入页面page===1 直接赋值
         if (this.listQuery.page === 1) {
           this.memberList = res.data.data
