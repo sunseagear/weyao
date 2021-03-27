@@ -161,7 +161,6 @@ export default {
     getmemberList() {
       this.listQuery = objectMerge(this.listQuery, this.query)
       fetchUserList(this.listQuery).then((res) => {
-        console.log('获取党员列表', res)
         // 如果进入页面page===1 直接赋值
         if (this.listQuery.page === 1) {
           this.memberList = res.data.data

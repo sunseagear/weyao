@@ -2,7 +2,7 @@ import validator from 'validator'
 /* 表单校验规则方法命名以Rule为结尾，方便和一遍的校验区分*/
 
 export default {
-  validateNumberRule(rule, value, callback) {
+  validateNumberRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -12,7 +12,7 @@ export default {
       return true
     }
   },
-  validateNumberGTZRule(rule, value, callback) {
+  validateNumberGTZRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -22,7 +22,7 @@ export default {
       return false
     }
   },
-  validateIntegerRule(rule, value, callback) {
+  validateIntegerRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -32,7 +32,7 @@ export default {
       return true
     }
   },
-  validateIngeterGTZRule(rule, value, callback) {
+  validateIngeterGTZRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -42,7 +42,7 @@ export default {
       return true
     }
   },
-  validateAlphaRule(rule, value, callback) {
+  validateAlphaRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -54,7 +54,7 @@ export default {
   },
 
   /*  是否身份证号码*/
-  validateIdNoRule(rule, value, callback) {
+  validateIdNoRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -70,7 +70,7 @@ export default {
     }
   },
   /*  是否身份证号码,详细规则校验*/
-  validateIdNoStrictRule(rule, code, callback) {
+  validateIdNoStrictRule(code) {
     if (code === undefined || code === null || code === '') {
       return true
     }
@@ -115,7 +115,7 @@ export default {
     // return pass
   },
 
-  validateURLRule(rule, value, callback) {
+  validateURLRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -126,7 +126,7 @@ export default {
     }
   },
   /*  是否邮箱*/
-  validateEMailRule(rule, value, callback) {
+  validateEMailRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -142,7 +142,7 @@ export default {
     }
   },
   /*  是否手机号码*/
-  validateMobileRule(rule, value, callback) {
+  validateMobileRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -158,7 +158,7 @@ export default {
     }
   },
   /*  是否手机号码或者固话*/
-  validateTelOrMobileRule(rule, value, callback) {
+  validateTelOrMobileRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -174,7 +174,7 @@ export default {
     }
   },
   /*  是否固话*/
-  validateTelphoneRule(rule, value, callback) {
+  validateTelphoneRule(value) {
     if (value === undefined || value === null || value === '') {
       return true
     }
@@ -191,7 +191,7 @@ export default {
   },
 
   /*  是否合法IP地址*/
-  validateIPRule(rule, value, callback) {
+  validateIPRule(value) {
     if (value === '' || value === undefined || value === null) {
       return true
     } else {

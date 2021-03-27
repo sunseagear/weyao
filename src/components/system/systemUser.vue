@@ -159,7 +159,6 @@ export default {
     onSearch(val) {
       this.listQuery.page = 1
       this.listQuery.search = val
-      console.log(val)
       this.getmemberList()
     },
     // 上拉加载
@@ -171,7 +170,6 @@ export default {
     // 获取党员信息列表
     getmemberList() {
       this.listQuery = objectMerge(this.listQuery, this.query)
-      console.log('this.ListQuery', this.listQuery)
       fetchUserList(this.listQuery).then((res) => {
         // 如果进入页面page===1 直接赋值
         if (this.listQuery.page === 1) {

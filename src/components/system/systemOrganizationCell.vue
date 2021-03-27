@@ -30,11 +30,20 @@ export default {
       name: undefined
     }
   },
-  created() {
-    this.getOrganization()
+  watch: {
+    value: {
+      immediate: true,
+      handler(val) {
+        this.getOrganizationInfo()
+      }
+    }
   },
   methods: {
     getOrganizationInfo() {
+      this.name = undefined
+      if (this.isNull(this.value)) {
+        return
+      }
       getOrganization(this.value).then((data) => {
         this.name = data.data.data.name
       })
