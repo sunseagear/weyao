@@ -1,10 +1,16 @@
 const path = require('path')
+const name = '文鳐' // page title
 module.exports = {
   outputDir: 'dist',
   // publicPath: process.env.NODE_ENV === 'production' ? '/vant-demo/' : '/'
   publicPath: './',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
+  configureWebpack: {
+    // provide the app's title in webpack's name field, so that
+    // it can be accessed in index.html to inject the correct title.
+    name: name
+  },
   devServer: {
     // https: true,
     port: 8088,
