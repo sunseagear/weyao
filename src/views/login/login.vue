@@ -99,7 +99,7 @@ export default {
   .submitbtn {
     width: 100%;
     margin-top: 13%;
-    background-image: linear-gradient(#e55753, #e5433e);
+    background-image: @gradient-orange;
     color: #fff;
     border: 0px;
     font-size: 17px;
