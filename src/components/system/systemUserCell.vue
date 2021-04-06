@@ -46,7 +46,7 @@ export default {
         return
       }
       getUser(this.value).then(response => {
-        if (response.data.code === 0) {
+        if (response.data.success) {
           this.username = response.data.data.realname
         }
       })

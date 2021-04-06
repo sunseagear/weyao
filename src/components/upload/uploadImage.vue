@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-field :rules="rules" :label="label" :style="{width: width}" name="username">
+    <van-field :rules="rules" :label="label" :style="{width: width}">
       <template #input>
         <van-uploader v-model="fileList" :capture="capture" :before-read="beforeRead" :after-read="afterRead" :max-count="maxCount" :upload-icon="uploadIcon" @delete="remove"/>
       </template>

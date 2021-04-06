@@ -75,10 +75,9 @@ export default {
     value: {
       immediate: true,
       handler(val) {
-        console.log('val', val)
         if (val) {
           this.currentDate = parseTime(val, this.pattern)
-          this.currentDateStr = val
+          this.currentDateStr = parseTime(val, this.pattern)
         }
       }
     }

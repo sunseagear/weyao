@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { fetchOrganizationList } from '@/api/system/organization'
+import { fetchOrganizationList, getOrganization } from '@/api/system/organization'
 
 export default {
   name: 'SystemOrganizaiton',
@@ -55,14 +55,30 @@ export default {
       name_: ''
     }
   },
+  watch: {
+    value: {
+      immediate: true,
+      handler(val) {
+        this.getOrganizationInfo()
+      }
+    }
+  },
   created() {
     this.getOrganization()
   },
   methods: {
+    getOrganizationInfo() {
+      this.name = undefined
+      if (this.isNull(this.value)) {
+        return
+      }
+      getOrganization(this.value).then((data) => {
+        this.name = data.data.data.name
+      })
+    },
     getOrganization() {
       fetchOrganizationList().then((data) => {
         this.list = data.data.data
-        console.log(this.columns)
       })
     },
     confirm(val) {

@@ -148,7 +148,7 @@ export default {
     onSearch(val) {
       this.listQuery.page = 1
       this.listQuery.search = val
-      console.log(val)
+      // console.log(val)
       this.getmemberList()
     },
     // 上拉加载
