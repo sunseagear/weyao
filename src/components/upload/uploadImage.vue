@@ -30,6 +30,10 @@ export default {
         return []
       }
     },
+    width: {
+      type: String,
+      default: '100%'
+    },
     uploadIcon: {
       type: String,
       required: false,
@@ -61,22 +65,21 @@ export default {
       fileList: []
     }
   },
-  // watch: {
-  //   value: {
-  //     immediate: true,
-  //     handler(val) {
-  //       this.fileList = []
-  //       if (this.isNull(val)) {
-  //         this.fileList = []
-  //         return
-  //       }
-  //       val.split(',').forEach(item => {
-  //         this.fileList.push({ url: item })
-  //       })
-  //       console.log('this.fileList', this.fileList)
-  //     }
-  //   }
-  // },
+  watch: {
+    value: {
+      immediate: true,
+      handler(val) {
+        this.fileList = []
+        if (this.isNull(val)) {
+          return
+        }
+        val.split(',').forEach(item => {
+          this.fileList.push({ url: item })
+        })
+        console.log('this.fileList', this.fileList)
+      }
+    }
+  },
   methods: {
     reset() {
       this.fileList = []

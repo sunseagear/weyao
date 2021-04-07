@@ -25,7 +25,7 @@ export default {
   name: 'DatePicker',
   props: {
     value: {
-      type: String,
+      type: [String, Number],
       default: undefined
     },
     rules: {

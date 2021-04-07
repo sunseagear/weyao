@@ -1,11 +1,9 @@
 <template>
   <div>
-    <van-nav-bar
-      :title="titleData"
-      class="top"
-      left-arrow
-      @click-left="onClickLeft"
-    />
+    <van-nav-bar :title="titleData" :left-arrow="leftArrow" class="top" fixed @click-left="onClickLeft">
+      <slot slot="right" name="right"/>
+    </van-nav-bar>
+    <div class="placeholder"/>
   </div>
 </template>
 
@@ -16,6 +14,10 @@ export default {
     title: {
       type: String,
       default: ''
+    },
+    leftArrow: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -39,19 +41,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.top {
-  height: 46px;
-  width: 100%;
-  /deep/.van-nav-bar__content {
-    background: #e5433e;
-  }
-  /deep/.van-nav-bar__title {
-    color: #fff;
-    letter-spacing: 5px;
-    font-weight: bold;
-  }
-}
-/deep/.van-nav-bar .van-icon {
-  color: #fff;
+.placeholder {
+  height: 48px;
 }
 </style>

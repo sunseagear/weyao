@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <van-cell :title="label" :style="{width: width}">
     <van-row :gutter="gutter">
       <van-col v-for="(item, index) in imageList" :key="index" :span="span">
         <van-image :src="item" :style="{'margin-top': gutter}" :height="height" :width="width" :fit="fit" @click="click(index)"/>
       </van-col>
     </van-row>
     <van-image-preview v-model="show" :start-position="startPosition" :images="imageList" @change="onChange">
-      <template v-slot:index>第{{ index }}页</template>
+      <template v-slot:index>第{{ index + 1 }}页</template>
     </van-image-preview>
-  </div>
+  </van-cell>
 </template>
 <script>
 export default {
@@ -18,6 +18,10 @@ export default {
       type: [String, Array],
       required: false,
       default: ''
+    },
+    label: {
+      type: String,
+      default: '图片展示'
     },
     fit: {
       type: String,
@@ -35,6 +39,16 @@ export default {
       default: '100%'
     },
     height: {
+      type: String,
+      required: false,
+      default: '100%'
+    },
+    imgWidth: {
+      type: String,
+      required: false,
+      default: '100%'
+    },
+    imgHeight: {
       type: String,
       required: false,
       default: '100%'
@@ -82,6 +96,3 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>

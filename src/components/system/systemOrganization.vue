@@ -2,8 +2,10 @@
   <div id="app">
     <van-field v-model="name" :rules="rules" :placeholder="placeholder" :label="label" :style="{width: width}" right-icon="search" readonly @click="dialogFormVisible = true" />
     <van-popup v-model="dialogFormVisible" :style="{ height: '50%' }" round closeable close-icon="cross" position="bottom">
-      <span class="headline">{{ headline }}</span>
-      <span class="confirm" @click="ensure">确认</span>
+      <div>
+        <span class="headline">{{ headline }}</span>
+        <span class="confirm" @click="ensure">确认</span>
+      </div>
       <vs-tree :data="list" :accordion="true" highlight-current>
         <span slot-scope="{ node, data }" class="custom-tree-node" @click="confirm(node)">
           {{ data.name }}
@@ -89,7 +91,7 @@ export default {
       this.name = this.name_
       this.dialogFormVisible = false
       // 点击确认把子组件id传给父组件
-      this.$emit('transmit', this.organizationId)
+      this.$emit('input', this.organizationId)
     }
 
   }
@@ -108,8 +110,8 @@ export default {
     top: 15px;
     font-size: 14px;
     display: block;
-    border: 1px solid #c8c9cc;
-    color: rgb(248, 15, 15);
+    border: 1px solid @primaryColor;
+    color: @primaryColor;
     width: 50px;
     text-align: center;
     border-radius: 20px;
@@ -131,7 +133,8 @@ export default {
     display: block;
     width: 100%;
   }
-  /deep/.vs-tree--highlight-current .vs-tree-node.is-current > .vs-tree-node__content {
-    background-color: #e4e2e2;
-  }}
+  ///deep/.vs-tree--highlight-current .vs-tree-node.is-current > .vs-tree-node__content {
+  //  background-color: #e4e2e2;
+  //}
+}
 </style>

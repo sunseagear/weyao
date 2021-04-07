@@ -7,7 +7,7 @@ import store from '@/store'
 import moment from 'moment'
 import * as filters from './filters' // global filters
 // 引入vant懒加载和样式
-import Vant, { Lazyload } from 'vant'
+import Vant, { Lazyload, Toast } from 'vant'
 import 'vant/lib/index.less'
 
 import '@/style/index.less'
@@ -52,6 +52,7 @@ Vue.prototype.formValidate = formValidate
 
 Vue.config.productionTip = false
 Vue.prototype.isNull = isNull
+Vue.prototype.$toast = Toast
 
 new Vue({
   router,

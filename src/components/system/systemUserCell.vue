@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <van-cell :title="label" :value="username" :style="{width: width}" />
-  </div>
-
+  <van-cell :title="label" :value="username" :style="{width: width}" />
 </template>
 
 <script>
