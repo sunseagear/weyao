@@ -1,13 +1,13 @@
 <template>
   <div>
-    <home v-show="activeTab === 'home'" />
-    <feature v-show="activeTab === 'feature'" />
-    <user v-show="activeTab==='user'" />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
     <van-tabbar v-model="activeTab" active-color="#ee0a24" inactive-color="#000">
-      <van-tabbar-item name="home" icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item name="feature" icon="search">样例</van-tabbar-item>
-      <van-tabbar-item name="friends" icon="friends-o">社交</van-tabbar-item>
-      <van-tabbar-item name="user" icon="user-o">我的</van-tabbar-item>
+      <van-tabbar-item to="/index/home" name="home" icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item to="/index/feature" name="feature" icon="search">样例</van-tabbar-item>
+      <van-tabbar-item to="/index/home" name="friends" icon="friends-o">社交</van-tabbar-item>
+      <van-tabbar-item to="/index/user" name="user" icon="user-o">我的</van-tabbar-item>
     </van-tabbar>
   </div>
 

@@ -10,21 +10,49 @@ const loginFirst = false
 
 const routes = [
   {
-    name: '/',
+    path: '/',
+    redirect: '/index/home'
+  },
+  {
+    path: '/index',
     component: () => import('@/views/index'),
     meta: {
       title: '首页'
-    }
+    },
+    children: [
+      {
+        path: 'home',
+        component: () => import('@/views/home/home'),
+        meta: {
+          title: '首页'
+        }
+      },
+      {
+        path: 'feature',
+        component: () => import('@/views/feature/feature'),
+        meta: {
+          title: '样例',
+          keepAlive: true
+        }
+      },
+      {
+        path: 'user',
+        component: () => import('@/views/user/user'),
+        meta: {
+          title: '我的'
+        }
+      }
+    ]
   },
   {
-    name: 'login',
+    path: '/login',
     component: () => import('@/views/login/login'),
     meta: {
       title: '登录'
     }
   },
   {
-    name: 'user',
+    path: '/user',
     component: () => import('@/views/user/user'),
     meta: {
       title: '会员中心',
@@ -32,21 +60,21 @@ const routes = [
     }
   },
   {
-    name: 'cart',
+    path: '/cart',
     component: () => import('@/views/cart'),
     meta: {
       title: '购物车'
     }
   },
   {
-    name: 'qrScan',
+    path: '/qrScan',
     component: () => import('@/views/qrcode/qrcode'),
     meta: {
       title: '扫码'
     }
   },
   {
-    name: 'goods',
+    path: '/goods',
     component: () => import('@/views/goods'),
     meta: {
       title: '商品详情'
@@ -55,9 +83,10 @@ const routes = [
 ]
 
 // add route path
-routes.forEach(route => {
-  route.path = route.path || '/' + (route.name || '')
-})
+// routes.forEach(route => {
+//   route.path = route.path || '/' + (route.name || '')
+// })
+// console.log(routes)
 
 const router = new Router({ routes })
 

@@ -11,9 +11,9 @@
       </van-collapse-item>
       <van-collapse-item title="Vant样例" name="20">
         <van-grid>
-          <van-grid-item to="goods" icon="goods-collect-o" text="商品" />
-          <van-grid-item to="cart" icon="cart-o" text="购物车" />
-          <van-grid-item to="user" icon="user-o" text="个人中心" />
+          <van-grid-item to="/goods" icon="goods-collect-o" text="商品" />
+          <van-grid-item to="/cart" icon="cart-o" text="购物车" />
+          <van-grid-item to="/index/user" icon="user-o" text="个人中心" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="自带组件" name="30">
