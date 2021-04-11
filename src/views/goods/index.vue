@@ -1,5 +1,6 @@
 <template>
   <div class="goods">
+    <nav-bar />
     <van-swipe :autoplay="3000" class="goods-swipe">
       <van-swipe-item v-for="thumb in goods.thumb" :key="thumb">
         <img :src="thumb" >

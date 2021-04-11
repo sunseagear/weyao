@@ -1,5 +1,6 @@
 <template>
   <div>
+    <nav-bar />
     <van-checkbox-group v-model="checkedGoods" class="card-goods">
       <van-checkbox
         v-for="item in goods"

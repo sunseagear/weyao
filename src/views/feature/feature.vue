@@ -2,21 +2,35 @@
   <div>
     <nav-bar title="模块"/>
     <van-collapse v-model="activeNames">
-      <van-collapse-item title="镜头类" name="1">
+      <van-collapse-item title="仓颉样例" name="10">
+        <van-grid>
+          <van-grid-item icon="photo-o" text="事件" />
+          <van-grid-item to="qrScan" icon="photo-o" text="客户" />
+          <van-grid-item icon="photo-o" text="部门" />
+        </van-grid>
+      </van-collapse-item>
+      <van-collapse-item title="Vant样例" name="20">
+        <van-grid>
+          <van-grid-item to="goods" icon="goods-collect-o" text="商品" />
+          <van-grid-item to="cart" icon="cart-o" text="购物车" />
+          <van-grid-item to="user" icon="user-o" text="个人中心" />
+        </van-grid>
+      </van-collapse-item>
+      <van-collapse-item title="自带组件" name="30">
+        <van-grid>
+          <van-grid-item to="goods" icon="goods-collect-o" text="商品" />
+          <van-grid-item to="cart" icon="cart-o" text="购物车" />
+          <van-grid-item to="user" icon="user-o" text="个人中心" />
+        </van-grid>
+      </van-collapse-item>
+      <van-collapse-item title="镜头类" name="30">
         <van-grid>
           <van-grid-item icon="photo-o" text="照片" />
           <van-grid-item to="qrScan" icon="photo-o" text="二维码" />
           <van-grid-item icon="photo-o" text="视频" />
         </van-grid>
       </van-collapse-item>
-      <van-collapse-item title="表单类" name="2">
-        <van-grid>
-          <van-grid-item icon="photo-o" text="照片" />
-          <van-grid-item icon="photo-o" text="二维码" />
-          <van-grid-item icon="photo-o" text="视频" />
-        </van-grid>
-      </van-collapse-item>
-      <van-collapse-item title="展示类" name="3">
+      <van-collapse-item title="展示类" name="50">
         <van-grid>
           <van-grid-item icon="photo-o" text="侧边栏" />
           <van-grid-item icon="photo-o" text="骨架屏" />
@@ -26,7 +40,7 @@
           <van-grid-item icon="photo-o" text="列表详情(滑动删除)" />
         </van-grid>
       </van-collapse-item>
-      <van-collapse-item title="图表类" name="4">
+      <van-collapse-item title="图表类" name="60">
         <van-grid>
           <van-grid-item icon="photo-o" text="line" />
           <van-grid-item icon="photo-o" text="bar" />
@@ -35,14 +49,14 @@
           <van-grid-item icon="photo-o" text="radar" />
         </van-grid>
       </van-collapse-item>
-      <van-collapse-item title="地图类" name="5">
+      <van-collapse-item title="地图类" name="70">
         <van-grid>
           <van-grid-item icon="photo-o" text="地图打点" />
           <van-grid-item icon="photo-o" text="地图画框" />
           <van-grid-item icon="photo-o" text="地图画线" />
         </van-grid>
       </van-collapse-item>
-      <van-collapse-item title="对接类" name="6">
+      <van-collapse-item title="对接类" name="80">
         <van-grid>
           <van-grid-item icon="photo-o" text="微信登录" />
           <van-grid-item icon="photo-o" text="微信支付" />
@@ -60,7 +74,7 @@ export default {
   name: 'Feature',
   data() {
     return {
-      activeNames: ['1']
+      activeNames: ['10']
     }
   }
 }
