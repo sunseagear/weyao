@@ -79,6 +79,34 @@ const routes = [
     meta: {
       title: '商品详情'
     }
+  },
+  {
+    path: '/eventList',
+    component: () => import('@/views/event/eventList'),
+    meta: {
+      title: '商品列表'
+    }
+  },
+  {
+    path: '/eventForm',
+    component: () => import('@/views/event/eventForm'),
+    meta: {
+      title: '商品信息'
+    }
+  },
+  {
+    path: '/clientList',
+    component: () => import('@/views/client/clientList'),
+    meta: {
+      title: '客户列表'
+    }
+  },
+  {
+    path: '/clientForm',
+    component: () => import('@/views/client/clientForm'),
+    meta: {
+      title: '客户信息'
+    }
   }
 ]
 
