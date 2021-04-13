@@ -108,6 +108,13 @@ const routes = [
       title: '客户信息'
     }
   },
+  {
+    path: '/404',
+    component: () => import('@/views/errorPage/404'),
+    meta: {
+      title: 'ERROR 404'
+    }
+  },
   { path: '*', redirect: '/404' }
 ]
 

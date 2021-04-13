@@ -11,7 +11,7 @@
         <div class="bullshit__oops">OOPS!</div>
         <div class="bullshit__headline">{{ message }}</div>
         <div class="bullshit__info">请检查您输入的网址是否正确，请点击以下按钮返回主页或者发送错误报告</div>
-        <a href="" class="bullshit__return-home">返回首页</a>
+        <a href="/" class="bullshit__return-home">返回首页</a>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/less" lang="less" scoped>
 .wscn-http404-container{
   transform: translate(-50%,-50%);
   position: absolute;
@@ -37,14 +37,10 @@ export default {
   left: 50%;
 }
 .wscn-http404 {
-  position: relative;
-  width: 1200px;
   padding: 0 50px;
   overflow: hidden;
   .pic-404 {
-    position: relative;
     float: left;
-    width: 600px;
     overflow: hidden;
     &__parent {
       width: 100%;
