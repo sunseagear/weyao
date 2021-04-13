@@ -84,14 +84,14 @@ const routes = [
     path: '/eventList',
     component: () => import('@/views/event/eventList'),
     meta: {
-      title: '商品列表'
+      title: '事件列表'
     }
   },
   {
     path: '/eventForm',
     component: () => import('@/views/event/eventForm'),
     meta: {
-      title: '商品信息'
+      title: '事件信息'
     }
   },
   {
@@ -107,7 +107,8 @@ const routes = [
     meta: {
       title: '客户信息'
     }
-  }
+  },
+  { path: '*', redirect: '/404' }
 ]
 
 // add route path
@@ -120,7 +121,7 @@ const router = new Router({ routes })
 
 router.beforeEach((to, from, next) => {
   next()
-  console.log('store.getters.userInfo', store.getters.userInfo)
+  // console.log('store.getters.userInfo', store.getters.userInfo)
   if (!store.getters.userInfo) {
     // 不是默认页或者登录页，并且需要登录则进行登录
     if (to.path !== '/' && to.path !== '/login' && (loginFirst || to.meta.needLogin)) {

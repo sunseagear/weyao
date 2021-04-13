@@ -68,12 +68,12 @@ export default {
     },
     handleCreate() {
       this.$router.push({
-        name: 'eventForm'
+        path: 'eventForm'
       })
     },
     handleUpdate(row) {
       this.$router.push({
-        name: 'eventForm',
+        path: 'eventForm',
         query: { id: row.id }
       })
     }

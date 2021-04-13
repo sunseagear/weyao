@@ -66,12 +66,12 @@ export default {
     },
     handleCreate() {
       this.$router.push({
-        name: 'clientForm'
+        path: '/clientForm'
       })
     },
     handleUpdate(row) {
       this.$router.push({
-        name: 'clientForm',
+        path: '/clientForm',
         query: { id: row.id }
       })
     }
