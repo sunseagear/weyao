@@ -76,7 +76,7 @@ export default {
         val.split(',').forEach(item => {
           this.fileList.push({ url: item })
         })
-        console.log('this.fileList', this.fileList)
+        // console.log('this.fileList', this.fileList)
       }
     }
   },

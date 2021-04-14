@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="page">
     <nav-bar>
       <template #right>
         <van-image :src="require('@/assets/add.png')" width="23px" @click="handleCreate" />
       </template>
     </nav-bar>
-    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+    <van-pull-refresh v-model="refreshing" class="pull-refresh-list" @refresh="onRefresh">
       <van-list
         v-model="listLoading"
         :finished="finished"
@@ -13,22 +13,26 @@
         finished-text="没有更多了"
         @load="onLoad">
 
-        <van-cell
+        <van-swipe-cell
           v-for="(row) in list"
-          :key="row.id"
-          @click="handleUpdate(row)">
-          <div>
-            <div>姓名:{{ row.name }}</div>
-            <div>手机:{{ row.phone }}</div>
-          </div>
-        </van-cell>
+          :key="row.id">
+          <van-cell @click="handleUpdate(row)">
+            <div>
+              <div>姓名:{{ row.name }}</div>
+              <div>手机:{{ row.phone }}</div>
+            </div>
+          </van-cell>
+          <template #right>
+            <van-button class="del-button" square type="danger" text="删除" @click="handleDelete(row)"/>
+          </template>
+        </van-swipe-cell>
       </van-list>
     </van-pull-refresh>
   </div>
 </template>
 
 <script>
-import { fetchClientList } from '@/api/client/client'
+import { fetchClientList, deleteClient } from '@/api/client/client'
 export default {
   name: 'ClientList',
   data() {
@@ -74,11 +78,23 @@ export default {
         path: '/clientForm',
         query: { id: row.id }
       })
+    },
+    handleDelete(row) {
+      this.$dialog.confirm({
+        message: '确定删除该数据吗？'
+      }).then(() => {
+        deleteClient(row.id).then(response => {
+          if (response.data.success) {
+            this.list.splice(this.list.indexOf(row), 1)
+            this.$toast.success(response.data.message)
+          }
+        })
+      })
     }
   }
 }
 </script>
 
-<style type="scss" scoped>
+<style type="less" scoped>
 
 </style>

@@ -5,7 +5,7 @@
         <van-image :src="require('@/assets/add.png')" width="23px" @click="handleCreate" />
       </template>
     </nav-bar>
-    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+    <van-pull-refresh v-model="refreshing" class="pull-refresh-list" @refresh="onRefresh">
       <van-list
         v-model="listLoading"
         :finished="finished"
@@ -34,8 +34,7 @@
 </template>
 
 <script>
-import { fetchEventList } from '@/api/event/event'
-import { deleteEvent } from '../../api/event/event'
+import { fetchEventList, deleteEvent } from '@/api/event/event'
 export default {
   name: 'EventList',
   data() {
@@ -73,12 +72,12 @@ export default {
     },
     handleCreate() {
       this.$router.push({
-        path: 'eventForm'
+        path: '/eventForm'
       })
     },
     handleUpdate(row) {
       this.$router.push({
-        path: 'eventForm',
+        path: '/eventForm',
         query: { id: row.id }
       })
     },
@@ -98,6 +97,6 @@ export default {
 }
 </script>
 
-<style type="scss" scoped>
+<style type="less" scoped>
 
 </style>

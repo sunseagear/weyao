@@ -3,7 +3,7 @@
     <template #input>
       <div style="width: 100%">
         <van-button v-if="showText" type="primary" @click="addPath">数据画点</van-button>
-        <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @click="getClickInfo">
+        <baidu-map :center="centerPoint" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @ready="ready" @click="getClickInfo">
           <bm-marker
             v-if="point.lng"
             :position="{lng:point.lng, lat: point.lat}"
@@ -61,6 +61,8 @@ export default {
   },
   data() {
     return {
+      isReady: false,
+      centerPoint: this.center,
       location: undefined,
       point: {}
     }
@@ -72,17 +74,30 @@ export default {
         if (this.value) {
           this.point = JSON.parse(this.value)
           this.location = this.value
+          this.updateCenterPoint()
         } else {
           this.point = {}
           this.location = undefined
-          console.log('this.point = {}', this.point)
         }
+        // console.log('this.point', this.point)
       }
     }
   },
   created() {
   },
   methods: {
+    updateCenterPoint() {
+      if (!this.isReady) {
+        this.centerPoint = this.center
+      } else {
+        this.centerPoint = this.isNull(this.location) ? this.center : this.point
+      }
+      // console.log('this.centerPoint', this.centerPoint)
+    },
+    ready() {
+      this.isReady = true
+      this.updateCenterPoint()
+    },
     addPath() {
       try {
         const point = JSON.parse(this.location)
