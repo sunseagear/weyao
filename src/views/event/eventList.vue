@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <nav-bar>
       <template #right>
         <van-image :src="require('@/assets/add.png')" width="23px" @click="handleCreate" />
@@ -13,17 +13,21 @@
         finished-text="没有更多了"
         @load="onLoad">
 
-        <van-cell
+        <van-swipe-cell
           v-for="(row) in list"
-          :key="row.id"
-          @click="handleUpdate(row)">
-          <div>
-            <div>标题:{{ row.title }}</div>
-            <div>用户:{{ row.user.realname }}</div>
-            <div>部门:{{ row.organization.name }}</div>
-            <div>事件时间:{{ row.date | parseTime('{y}-{m}-{d}') }}</div>
-          </div>
-        </van-cell>
+          :key="row.id">
+          <van-cell @click="handleUpdate(row)">
+            <div>
+              <div>标题:{{ row.title }}</div>
+              <div>用户:{{ row.user.realname }}</div>
+              <div>部门:{{ row.organization.name }}</div>
+              <div>事件时间:{{ row.date | parseTime('{y}-{m}-{d}') }}</div>
+            </div>
+          </van-cell>
+          <template #right>
+            <van-button class="del-button" square type="danger" text="删除" @click="handleDelete(row)"/>
+          </template>
+        </van-swipe-cell>
       </van-list>
     </van-pull-refresh>
   </div>
@@ -31,6 +35,7 @@
 
 <script>
 import { fetchEventList } from '@/api/event/event'
+import { deleteEvent } from '../../api/event/event'
 export default {
   name: 'EventList',
   data() {
@@ -75,6 +80,18 @@ export default {
       this.$router.push({
         path: 'eventForm',
         query: { id: row.id }
+      })
+    },
+    handleDelete(row) {
+      this.$dialog.confirm({
+        message: '确定删除该数据吗？'
+      }).then(() => {
+        deleteEvent(row.id).then(response => {
+          if (response.data.success) {
+            this.list.splice(this.list.indexOf(row), 1)
+            this.$toast.success(response.data.message)
+          }
+        })
       })
     }
   }
