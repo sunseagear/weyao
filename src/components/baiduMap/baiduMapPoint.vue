@@ -61,6 +61,7 @@ export default {
   },
   data() {
     return {
+      isClick: false,
       isReady: false,
       centerPoint: this.center,
       location: undefined,
@@ -87,9 +88,7 @@ export default {
   },
   methods: {
     updateCenterPoint() {
-      if (!this.isReady) {
-        this.centerPoint = this.center
-      } else {
+      if (this.isReady && !this.isClick) {
         this.centerPoint = this.isNull(this.location) ? this.center : this.point
       }
       // console.log('this.centerPoint', this.centerPoint)
@@ -112,8 +111,7 @@ export default {
       }
     },
     getClickInfo(e) {
-      console.log(e.point.lng)
-      console.log(e.point.lat)
+      this.isClick = true
       this.point = e.point
       this.updateData()
     },
