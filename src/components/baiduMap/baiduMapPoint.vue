@@ -75,7 +75,7 @@ export default {
         if (this.value) {
           this.point = JSON.parse(this.value)
           this.location = this.value
-          console.log('handler')
+          // console.log('handler')
           this.updateCenterPoint()
         } else {
           this.point = {}
@@ -93,12 +93,12 @@ export default {
         if (this.isReady && !this.isClick) {
           this.centerPoint = this.isNull(this.location) ? this.center : this.point
         }
-        console.log('this.centerPoint', this.centerPoint)
+        // console.log('this.centerPoint', this.centerPoint)
       })
     },
     ready() {
       this.isReady = true
-      console.log('ready')
+      // console.log('ready')
       this.updateCenterPoint()
     },
     addPath() {
