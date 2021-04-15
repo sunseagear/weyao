@@ -109,13 +109,6 @@ const routes = [
     }
   },
   {
-    path: '/example',
-    component: () => import('@/views/organization/CustomAppearanceIconExample'),
-    meta: {
-      title: '组织机构'
-    }
-  },
-  {
     path: '/organizationList',
     component: () => import('@/views/organization/organizationList'),
     meta: {

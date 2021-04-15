@@ -3,7 +3,7 @@
     <nav-bar />
     <tree v-model="list">
       <template #title="{node}">
-        <van-cell :title="node.name" />
+        <van-cell :title="node.name" @click="handleUpdate(node)" />
       </template>
     </tree>
   </div>
@@ -27,12 +27,20 @@ export default {
     this.onLoad()
   },
   methods: {
-    click(event, node) {
-      console.log('node click', node)
-    },
     onLoad() {
       fetchOrganizationList().then((data) => {
         this.list = data.data.data
+      })
+    },
+    handleCreate() {
+      this.$router.push({
+        path: '/organizationForm'
+      })
+    },
+    handleUpdate(row) {
+      this.$router.push({
+        path: '/organizationForm',
+        query: { id: row.id }
       })
     }
   }

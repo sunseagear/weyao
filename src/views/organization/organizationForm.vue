@@ -2,13 +2,8 @@
   <div>
     <nav-bar />
     <van-form @submit="temp.id ? updateData() : createData()">
-      <van-field v-model="temp.title" :rules="[{ required: true, message: '请填写标题' }]" label="标题" placeholder="请输入标题" />
-      <system-user v-model="temp.userId" label="用户" placeholder="请选择用户" />
-      <system-organization v-model="temp.organizationId" label="部门" placeholder="请选择部门" />
-      <date-picker v-model="temp.date" label="事件时间" placeholder="请选择事件时间" type="date" pattern="{y}-{m}-{d}"/>
-      <van-field v-model="temp.content" label="内容" rows="4" placeholder="请输入内容" type="textarea"/>
-      <baidu-map-point v-model="temp.location" label="位置" />
-      <upload-image v-model="temp.image" label="图片" />
+      <tree-selector ref="treeSelector" v-model="temp.parentId" label="上级目录" placeholder="请输入上级目录" />
+      <van-field v-model="temp.name" :rules="[{ required: true, message: '请填写标题' }]" label="标题" placeholder="请输入标题" />
       <van-cell>
         <van-button style="width: 100%;" native-type="submit">发布</van-button>
       </van-cell>
@@ -18,22 +13,22 @@
 </template>
 
 <script>
-import { createEvent, updateEvent, getEvent } from '@/api/event/event'
-import SystemUser from '@/components/system/systemUser'
-import SystemOrganization from '@/components/system/systemOrganization'
-import DatePicker from '@/components/picker/datePicker'
-import BaiduMapPoint from '@/components/baiduMap/baiduMapPoint'
-import UploadImage from '@/components/upload/uploadImage'
+import { fetchOrganizationList } from '@/api/system/organization'
+import { createEvent, updateEvent } from '@/api/event/event'
+import TreeSelector from '../../components/tree/treeSelector'
+import { getOrganization } from '../../api/system/organization'
 
 export default {
   name: 'OrganizationForm',
-  components: { SystemUser, SystemOrganization, DatePicker, BaiduMapPoint, UploadImage },
+  components: { TreeSelector },
   data() {
     return {
-      temp: {}
+      temp: {},
+      list: []
     }
   },
   created() {
+    this.onLoad()
     const id = this.$route.query.id
     if (!this.isNull(id)) {
       this.handleUpdate(id)
@@ -42,6 +37,12 @@ export default {
     }
   },
   methods: {
+    onLoad() {
+      fetchOrganizationList().then((data) => {
+        this.list = data.data.data
+        this.$refs.treeSelector.setList(this.list)
+      })
+    },
     resetTemp() {
       this.temp = {
         id: undefined,
@@ -66,7 +67,7 @@ export default {
     },
     handleUpdate(id) {
       this.resetTemp()
-      getEvent(id).then(response => {
+      getOrganization(id).then(response => {
         if (response.data.success) {
           this.temp = response.data.data
         }
