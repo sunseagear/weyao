@@ -3,7 +3,9 @@
     <TWTree :tree="list" :default-attrs="{
       style: {
         showIcon: false,
-        selectedBgColor: 'transparent'
+        selectedBgColor: 'transparent',
+        hoverBgColor: 'transparent',
+        dragOverBgColor: 'transparent'
       }
     }">
       <template #switcher="{node}">
