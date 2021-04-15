@@ -109,6 +109,27 @@ const routes = [
     }
   },
   {
+    path: '/example',
+    component: () => import('@/views/organization/CustomAppearanceIconExample'),
+    meta: {
+      title: '组织机构'
+    }
+  },
+  {
+    path: '/organizationList',
+    component: () => import('@/views/organization/organizationList'),
+    meta: {
+      title: '组织机构'
+    }
+  },
+  {
+    path: '/organizationForm',
+    component: () => import('@/views/organization/organizationForm'),
+    meta: {
+      title: '组织机构'
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/views/errorPage/404'),
     meta: {

@@ -4,9 +4,9 @@
     <van-collapse v-model="activeNames">
       <van-collapse-item title="仓颉样例" name="10">
         <van-grid>
-          <van-grid-item to="/eventList" icon="photo-o" text="事件" />
-          <van-grid-item to="/clientList" icon="photo-o" text="客户" />
-          <van-grid-item icon="photo-o" text="部门" />
+          <van-grid-item to="/eventList" icon="todo-list-o" text="事件" />
+          <van-grid-item to="/clientList" icon="friends-o" text="客户" />
+          <van-grid-item to="/organizationList" icon="cluster-o" text="部门" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="Vant样例" name="20">

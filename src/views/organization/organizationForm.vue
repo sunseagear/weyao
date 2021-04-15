@@ -26,7 +26,7 @@ import BaiduMapPoint from '@/components/baiduMap/baiduMapPoint'
 import UploadImage from '@/components/upload/uploadImage'
 
 export default {
-  name: 'EventForm',
+  name: 'OrganizationForm',
   components: { SystemUser, SystemOrganization, DatePicker, BaiduMapPoint, UploadImage },
   data() {
     return {
@@ -84,6 +84,6 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style type="less" scoped>
 
 </style>
