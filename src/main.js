@@ -3,7 +3,7 @@ import App from './App'
 import { router } from './router/router'
 
 import store from '@/store'
-
+import './icons' // icon
 import moment from 'moment'
 import * as filters from './filters' // global filters
 // 引入vant懒加载和样式
