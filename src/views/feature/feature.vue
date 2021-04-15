@@ -6,7 +6,7 @@
         <van-grid>
           <van-grid-item to="/eventList" icon="todo-list-o" text="事件" />
           <van-grid-item to="/clientList" icon="friends-o" text="客户" />
-          <van-grid-item to="/organizationList" icon="cluster-o" text="部门" />
+          <van-grid-item to="/departmentList" icon="cluster-o" text="部门" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="Vant样例" name="20">

@@ -2,7 +2,7 @@
   <div>
     <nav-bar />
     <van-form @submit="temp.id ? updateData() : createData()">
-      <tree-selector ref="treeSelector" v-model="temp.parentId" label="上级目录" placeholder="请输入上级目录" />
+      <tree-selector ref="treeSelector" v-model="temp.parentId" label="上级目录" placeholder="请选择上级目录" />
       <van-field v-model="temp.name" :rules="[{ required: true, message: '请填写标题' }]" label="标题" placeholder="请输入标题" />
       <van-cell>
         <van-button style="width: 100%;" native-type="submit">发布</van-button>

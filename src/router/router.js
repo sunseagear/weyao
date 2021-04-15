@@ -123,6 +123,20 @@ const routes = [
     }
   },
   {
+    path: '/departmentList',
+    component: () => import('@/views/department/departmentList'),
+    meta: {
+      title: '组织机构'
+    }
+  },
+  {
+    path: '/departmentForm',
+    component: () => import('@/views/department/departmentForm'),
+    meta: {
+      title: '组织机构'
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/views/errorPage/404'),
     meta: {

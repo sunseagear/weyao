@@ -98,7 +98,7 @@ export default {
       this.list = list
     },
     confirm(val) {
-      this.name_ = val.label
+      this.name_ = val.data.name
       this.organizationId = val.data.id
     },
     ensure() {
