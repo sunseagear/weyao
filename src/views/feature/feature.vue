@@ -42,18 +42,18 @@
       <!--      </van-collapse-item>-->
       <van-collapse-item title="图表类" name="60">
         <van-grid>
-          <van-grid-item to="/line" icon="photo-o" text="line" />
-          <van-grid-item to="/bar" icon="photo-o" text="bar" />
-          <van-grid-item to="/pie" icon="photo-o" text="pie" />
-          <van-grid-item to="/map" icon="photo-o" text="map" />
-          <van-grid-item to="/radar" icon="photo-o" text="radar" />
+          <van-grid-item to="/line" icon="chart-trending-o" text="line" />
+          <van-grid-item to="/bar" icon="bar-chart-o" text="bar" />
+          <van-grid-item to="/pie" icon="bar-chart-o" text="pie" />
+          <van-grid-item to="/map" icon="bar-chart-o" text="map" />
+          <van-grid-item to="/radar" icon="bar-chart-o" text="radar" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="地图类" name="70">
         <van-grid>
-          <van-grid-item icon="photo-o" text="地图打点" />
-          <van-grid-item icon="photo-o" text="地图画框" />
-          <van-grid-item icon="photo-o" text="地图画线" />
+          <van-grid-item icon="location-o" text="地图打点" />
+          <van-grid-item icon="location-o" text="地图画框" />
+          <van-grid-item icon="location-o" text="地图画线" />
         </van-grid>
       </van-collapse-item>
       <van-collapse-item title="对接类" name="80">
