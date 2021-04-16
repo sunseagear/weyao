@@ -42,7 +42,7 @@ Vue.prototype.dictList = function(code) {
 import BaiduMap from 'vue-baidu-map'
 Vue.use(BaiduMap, {
   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
-  ak: ''
+  ak: 'Cvg6bkUEqiCbfYxOX9UPxTdMrmdGLNBp'
 })
 
 Vue.prototype.formValidate = formValidate
@@ -52,7 +52,6 @@ Vue.prototype.isNull = isNull
 Vue.prototype.$toast = Toast
 Vue.prototype.$dialog = Dialog
 Vue.prototype.$notify = Notify
-
 new Vue({
   router,
   store,

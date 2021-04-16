@@ -48,7 +48,7 @@ export default {
     },
     showText: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data() {

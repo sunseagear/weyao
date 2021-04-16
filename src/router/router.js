@@ -144,6 +144,41 @@ const routes = [
     }
   },
   {
+    path: '/line',
+    component: () => import('@/views/chart/line'),
+    meta: {
+      title: '线图'
+    }
+  },
+  {
+    path: '/map',
+    component: () => import('@/views/chart/map'),
+    meta: {
+      title: '地图'
+    }
+  },
+  {
+    path: '/bar',
+    component: () => import('@/views/chart/bar'),
+    meta: {
+      title: '柱状图'
+    }
+  },
+  {
+    path: '/pie',
+    component: () => import('@/views/chart/pie'),
+    meta: {
+      title: '饼图'
+    }
+  },
+  {
+    path: '/radar',
+    component: () => import('@/views/chart/radar'),
+    meta: {
+      title: '雷达图'
+    }
+  },
+  {
     path: '/404',
     component: () => import('@/views/errorPage/404'),
     meta: {

@@ -1,17 +1,12 @@
 <template>
-  <div id="MyEcharts" :style="style"/>
+  <div id="MyEcharts" :style="{height:height,width:width}"/>
 </template>
 <script>
+import * as echarts from 'echarts'
+require('echarts/extension/bmap/bmap')
+
 export default {
   name: 'VueEcharts',
-  components: {
-    style() {
-      return {
-        height: this.height,
-        width: this.width
-      }
-    }
-  },
   props: {
     width: {
       type: String,
@@ -19,6 +14,15 @@ export default {
       require: false
     },
     height: {
+      type: String,
+      default: '',
+      require: true
+    },
+    isMap: {
+      type: Boolean,
+      default: false
+    },
+    ak: {
       type: String,
       default: '',
       require: true
@@ -38,13 +42,45 @@ export default {
       }
     }
   },
+  watch: {
+    option: {
+      immediate: true,
+      handler(val) {
+        this.MyEcharts.setOption(this.option)
+      }
+    }
+  },
   mounted() {
     this.initEcharts()
-    this.MyEcharts.setOption(this.option)
+    if (this.isMap) {
+      this.loadBMap('Cvg6bkUEqiCbfYxOX9UPxTdMrmdGLNBp').then(() => {
+        this.MyEcharts.setOption(this.option)
+      })
+    }
   },
   methods: {
+    getEcharts() {
+      return echarts
+    },
     initEcharts() {
-      this.MyEcharts = this.$echarts.init(document.getElementById('MyEcharts'))
+      this.MyEcharts = echarts.init(document.getElementById('MyEcharts'))
+    },
+    loadBMap(ak) {
+      return new Promise(function(resolve, reject) {
+        if (typeof BMap !== 'undefined') {
+          resolve()
+          return true
+        }
+        window.onBMapCallback = function() {
+          resolve()
+        }
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.src =
+            'http://api.map.baidu.com/api?v=2.0&ak=' + ak + '&callback=onBMapCallback'
+        script.onerror = reject
+        document.head.appendChild(script)
+      })
     }
   }
 }
