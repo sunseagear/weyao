@@ -109,6 +109,13 @@ const routes = [
     }
   },
   {
+    path: '/clientDetail',
+    component: () => import('@/views/client/clientDetail'),
+    meta: {
+      title: '客户信息'
+    }
+  },
+  {
     path: '/organizationList',
     component: () => import('@/views/organization/organizationList'),
     meta: {

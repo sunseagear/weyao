@@ -1,13 +1,6 @@
 ﻿<template>
   <div>
-    <TWTree :tree="list" :default-attrs="{
-      style: {
-        showIcon: false,
-        selectedBgColor: 'transparent',
-        hoverBgColor: 'transparent',
-        dragOverBgColor: 'transparent'
-      }
-    }">
+    <TWTree :tree="list" :default-attrs="defaultAttrs" :multi-select="multiSelect" :checkbox-linkage="checkboxLinkage">
       <template #switcher="{node}">
         <svg-icon v-if="node.directoryState === 'collapsed'" icon-class="add" style="width: 25px;height: 25px"/>
         <svg-icon v-else-if="node.directoryState === 'expanded'" icon-class="delete" style="width: 25px;height: 25px"/>
@@ -23,6 +16,7 @@
 
 <script>
 import TWTree from 'twtree'
+import { objectMerge } from '@/utils'
 export default {
   name: 'Tree',
   components: {
@@ -36,10 +30,30 @@ export default {
     width: {
       type: String,
       default: '100%'
+    },
+    attrs: {
+      type: Object,
+      default: undefined
+    },
+    checkboxLinkage: {
+      type: Boolean,
+      default: true
+    },
+    multiSelect: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
+      defaultAttrs: {
+        style: {
+          showIcon: false,
+          selectedBgColor: 'transparent',
+          hoverBgColor: 'transparent',
+          dragOverBgColor: 'transparent'
+        }
+      },
       list: []
     }
   },
@@ -52,6 +66,9 @@ export default {
         this.formatData(this.list)
       }
     }
+  },
+  created() {
+    this.defaultAttrs = objectMerge(this.defaultAttrs, this.attrs)
   },
   methods: {
     formatData(list) {

@@ -6,20 +6,24 @@
         <span class="headline">{{ headline }}</span>
         <span class="confirm" @click="ensure">确认</span>
       </div>
-      <vs-tree :data="list" :accordion="true" highlight-current>
-        <span slot-scope="{ node, data }" class="custom-tree-node" @click="confirm(node)">
-          {{ data.name }}
-        </span>
-      </vs-tree>
+      <tree v-model="list" :checkbox-linkage="false" :attrs="{style:{selectedBgColor: '#dcdee0'}}">
+        <template #title="{node}">
+          <van-cell :title="node.name" style="background: transparent" @click="confirm(node)"/>
+        </template>
+      </tree>
     </van-popup>
   </div>
 </template>
 
 <script>
 import { fetchOrganizationList, getOrganization } from '@/api/system/organization'
+import Tree from '@/components/tree/tree'
 
 export default {
   name: 'SystemOrganizaiton',
+  components: {
+    Tree
+  },
   props: {
     value: {
       type: String,
@@ -85,7 +89,7 @@ export default {
     },
     confirm(val) {
       this.name_ = val.label
-      this.organizationId = val.data.id
+      this.organizationId = val.id
     },
     ensure() {
       this.name = this.name_

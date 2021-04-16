@@ -11,14 +11,11 @@ import Vant, { Lazyload, Toast, Dialog, Notify } from 'vant'
 import 'vant/lib/index.less'
 
 import '@/style/index.less'
-import VsTree from 'vs-tree'
-import 'vs-tree/lib/style/index.css'
 import NavBar from '@/components/navBar/navBar'
 
 import { isNull } from '@/utils'
 import formValidate from '@/utils/formValidate'
 
-Vue.use(VsTree)
 Vue.use(Lazyload)
 Vue.use(Vant)
 Vue.component('nav-bar', NavBar)

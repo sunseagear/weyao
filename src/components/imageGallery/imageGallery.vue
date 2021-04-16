@@ -1,7 +1,7 @@
 <template>
   <van-cell :title="label" :style="{width: width}">
     <van-row :gutter="gutter">
-      <van-col v-for="(item, index) in imageList" :key="index" :span="span">
+      <van-col v-for="(item, index) in imageList" :key="index" :span="span" :offset="offset(index)">
         <van-image :src="item" :style="{'margin-top': gutter}" :height="height" :width="width" :fit="fit" @click="click(index)"/>
       </van-col>
     </van-row>
@@ -84,6 +84,14 @@ export default {
     }
   },
   methods: {
+    offset(index) {
+      if (index !== 0) {
+        return 0
+      }
+      const length = this.imageList.length
+      const total = length * this.span
+      return total >= 24 ? 0 : (24 - total)
+    },
     onChange(index) {
       this.index = index
     },

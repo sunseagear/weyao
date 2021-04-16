@@ -8,7 +8,10 @@
       <system-user v-model="temp.manager" :rules="[{ required: true, message: '请填写经理' }]" label="经理" placeholder="请选择经理" />
       <van-field v-model="temp.address" label="地址" rows="4" placeholder="请输入地址" type="textarea"/>
       <van-cell>
-        <van-button style="width: 100%;" native-type="submit">发布</van-button>
+        <van-button style="width: 100%;" native-type="submit">提交</van-button>
+      </van-cell>
+      <van-cell v-if="temp.id">
+        <van-button plain type="danger" style="width: 100%;" @click="handleDelete">删除</van-button>
       </van-cell>
     </van-form>
   </div>
@@ -16,7 +19,7 @@
 </template>
 
 <script>
-import { fetchDepartmentList, createDepartment, updateDepartment, getDepartment } from '@/api/department/department'
+import { fetchDepartmentList, createDepartment, updateDepartment, getDepartment, deleteDepartment } from '@/api/department/department'
 import TreeSelector from '@/components/tree/treeSelector'
 import SystemUser from '@/components/system/systemUser'
 
@@ -25,7 +28,8 @@ export default {
   components: { TreeSelector, SystemUser },
   data() {
     return {
-      temp: {}
+      temp: {},
+      list: []
     }
   },
   created() {
@@ -39,7 +43,6 @@ export default {
   },
   methods: {
     onLoad() {
-      this.listLoading = true
       fetchDepartmentList(this.listQuery).then(response => {
         this.list = response.data.data
         this.$refs.treeSelector.setList(this.list)
@@ -80,6 +83,18 @@ export default {
           this.$toast.success(response.data.message)
           this.$router.go(-1)
         }
+      })
+    },
+    handleDelete() {
+      this.$dialog.confirm({
+        message: '确定删除该数据吗？'
+      }).then(() => {
+        deleteDepartment(this.temp.id).then(response => {
+          if (response.data.success) {
+            this.$toast.success(response.data.message)
+            this.$router.go(-1)
+          }
+        })
       })
     }
   }
