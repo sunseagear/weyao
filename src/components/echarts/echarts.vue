@@ -15,7 +15,7 @@ export default {
     },
     height: {
       type: String,
-      default: '',
+      default: '400px',
       require: true
     },
     isMap: {
@@ -42,20 +42,14 @@ export default {
       }
     }
   },
-  watch: {
-    option: {
-      immediate: true,
-      handler(val) {
-        this.MyEcharts.setOption(this.option)
-      }
-    }
-  },
   mounted() {
     this.initEcharts()
     if (this.isMap) {
-      this.loadBMap('Cvg6bkUEqiCbfYxOX9UPxTdMrmdGLNBp').then(() => {
+      this.loadBMap(this.ak).then(() => {
         this.MyEcharts.setOption(this.option)
       })
+    } else {
+      this.MyEcharts.setOption(this.option)
     }
   },
   methods: {
