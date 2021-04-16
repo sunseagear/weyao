@@ -1,13 +1,18 @@
 <template>
-  <div>
-    <van-button type="primary" @click="newRect">添加多边形</van-button>
-    <van-button type="primary" @click="clearRect">清除多边形</van-button>
-    <van-button v-if="showText" type="primary" @click="addPath">数据画线</van-button>
-    <van-field v-if="showText" v-model="path" style="margin-top: 10px; margin-bottom: 10px" />
-    <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @moving="syncCenterAndZoom" @moveend="syncCenterAndZoom" @zoomend="syncCenterAndZoom">
-      <bm-polygon :path="polygonPath" :stroke-color="color" :stroke-opacity="opacity" :stroke-weight="weight" :editing="true" @lineupdate="updatePolygonPath" />
-    </baidu-map>
-  </div>
+  <van-field v-model="location" :placeholder="placeholder" :label="label" >
+    <template #input>
+      <div style="width: 100%">
+        <van-button type="primary" @click="newRect">添加多边形</van-button>
+        <van-button type="primary" @click="clearRect">清除多边形</van-button>
+        <van-button v-if="showText" type="primary" @click="addPath">数据画线</van-button>
+        <van-field v-if="showText" v-model="path" style="margin-top: 10px; margin-bottom: 10px" />
+        <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @moving="syncCenterAndZoom" @moveend="syncCenterAndZoom" @zoomend="syncCenterAndZoom">
+          <bm-polygon :path="polygonPath" :stroke-color="color" :stroke-opacity="opacity" :stroke-weight="weight" :editing="!readOnly" @lineupdate="updatePolygonPath" />
+        </baidu-map>
+      </div>
+    </template>
+  </van-field>
+
 </template>
 
 <script>
@@ -21,6 +26,14 @@ export default {
     center: {
       type: [Object, String],
       default: '北京'
+    },
+    label: {
+      type: String,
+      default: undefined
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     zoom: {
       type: Number,
@@ -49,10 +62,15 @@ export default {
     showText: {
       type: Boolean,
       default: false
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
+      location: undefined,
       polygonPath: [],
       mapCenter: {},
       path: undefined

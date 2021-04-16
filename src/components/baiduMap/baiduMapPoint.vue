@@ -7,7 +7,7 @@
           <bm-marker
             v-if="point.lng"
             :position="{lng:point.lng, lat: point.lat}"
-            :dragging="true"
+            :dragging="!readOnly"
           >
             <bm-label
               :label-style="{color: 'red', fontSize : '14px'}"
@@ -55,6 +55,10 @@ export default {
       default: '400px'
     },
     showText: {
+      type: Boolean,
+      default: false
+    },
+    readOnly: {
       type: Boolean,
       default: false
     }
@@ -115,6 +119,9 @@ export default {
       }
     },
     getClickInfo(e) {
+      if (this.readOnly) {
+        return
+      }
       this.isClick = true
       this.point = e.point
       this.updateData()

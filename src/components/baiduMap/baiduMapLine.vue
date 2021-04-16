@@ -1,13 +1,17 @@
 <template>
-  <div>
-    <van-button type="primary" @click="newRect">添加折线</van-button>
-    <van-button type="primary" @click="clearRect">清除折线</van-button>
-    <van-button v-if="showText" type="primary" @click="addPath">数据画线</van-button>
-    <van-field v-if="showText" v-model="path" style="margin-top: 10px; margin-bottom: 10px" />
-    <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @moving="syncCenterAndZoom" @moveend="syncCenterAndZoom" @zoomend="syncCenterAndZoom">
-      <bm-polyline :path="polylinePath" :stroke-color="color" :stroke-opacity="opacity" :stroke-weight="weight" :editing="true" @lineupdate="updatepolylinePath" />
-    </baidu-map>
-  </div>
+  <van-field v-model="location" :placeholder="placeholder" :label="label" >
+    <template #input>
+      <div style="width: 100%">
+        <van-button type="primary" @click="newRect">添加折线</van-button>
+        <van-button type="primary" @click="clearRect">清除折线</van-button>
+        <van-button v-if="showText" type="primary" @click="addPath">数据画线</van-button>
+        <van-field v-if="showText" v-model="path" style="margin-top: 10px; margin-bottom: 10px" />
+        <baidu-map :center="center" :scroll-wheel-zoom="true" :zoom="zoom" :style="{height:height,width:width}" @moving="syncCenterAndZoom" @moveend="syncCenterAndZoom" @zoomend="syncCenterAndZoom">
+          <bm-polyline :path="polylinePath" :stroke-color="color" :stroke-opacity="opacity" :stroke-weight="weight" :editing="!readOnly" @lineupdate="updatepolylinePath" />
+        </baidu-map>
+      </div>
+    </template>
+  </van-field>
 </template>
 
 <script>
@@ -17,6 +21,14 @@ export default {
     value: {
       type: String,
       default: undefined
+    },
+    label: {
+      type: String,
+      default: undefined
+    },
+    placeholder: {
+      type: String,
+      default: ''
     },
     center: {
       type: [Object, String],
@@ -49,6 +61,10 @@ export default {
     showText: {
       type: Boolean,
       default: true
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
