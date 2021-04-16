@@ -16,30 +16,30 @@
           <van-grid-item to="/index/user" icon="user-o" text="个人中心" />
         </van-grid>
       </van-collapse-item>
-      <van-collapse-item title="自带组件" name="30">
-        <van-grid>
-          <van-grid-item to="goods" icon="goods-collect-o" text="商品" />
-          <van-grid-item to="cart" icon="cart-o" text="购物车" />
-          <van-grid-item to="user" icon="user-o" text="个人中心" />
-        </van-grid>
-      </van-collapse-item>
-      <van-collapse-item title="镜头类" name="30">
+      <!--      <van-collapse-item title="自带组件" name="30">-->
+      <!--        <van-grid>-->
+      <!--          <van-grid-item to="goods" icon="goods-collect-o" text="商品" />-->
+      <!--          <van-grid-item to="cart" icon="cart-o" text="购物车" />-->
+      <!--          <van-grid-item to="user" icon="user-o" text="个人中心" />-->
+      <!--        </van-grid>-->
+      <!--      </van-collapse-item>-->
+      <van-collapse-item title="镜头类" name="40">
         <van-grid>
           <van-grid-item icon="photo-o" text="照片" />
           <van-grid-item to="qrScan" icon="photo-o" text="二维码" />
           <van-grid-item icon="photo-o" text="视频" />
         </van-grid>
       </van-collapse-item>
-      <van-collapse-item title="展示类" name="50">
-        <van-grid>
-          <van-grid-item icon="photo-o" text="侧边栏" />
-          <van-grid-item icon="photo-o" text="骨架屏" />
-          <van-grid-item icon="photo-o" text="步骤条" />
-          <van-grid-item icon="photo-o" text="属性选择" />
-          <van-grid-item icon="photo-o" text="瀑布流" />
-          <van-grid-item icon="photo-o" text="列表详情(滑动删除)" />
-        </van-grid>
-      </van-collapse-item>
+      <!--      <van-collapse-item title="展示类" name="50">-->
+      <!--        <van-grid>-->
+      <!--          <van-grid-item icon="photo-o" text="侧边栏" />-->
+      <!--          <van-grid-item icon="photo-o" text="骨架屏" />-->
+      <!--          <van-grid-item icon="photo-o" text="步骤条" />-->
+      <!--          <van-grid-item icon="photo-o" text="属性选择" />-->
+      <!--          <van-grid-item icon="photo-o" text="瀑布流" />-->
+      <!--          <van-grid-item icon="photo-o" text="列表详情(滑动删除)" />-->
+      <!--        </van-grid>-->
+      <!--      </van-collapse-item>-->
       <van-collapse-item title="图表类" name="60">
         <van-grid>
           <van-grid-item to="/line" icon="photo-o" text="line" />
