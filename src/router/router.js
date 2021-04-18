@@ -81,6 +81,20 @@ const routes = [
     }
   },
   {
+    path: '/newsList',
+    component: () => import('@/views/news/newsList'),
+    meta: {
+      title: '新闻列表'
+    }
+  },
+  {
+    path: '/newsDetail',
+    component: () => import('@/views/news/newsDetail'),
+    meta: {
+      title: '新闻详情'
+    }
+  },
+  {
     path: '/eventList',
     component: () => import('@/views/event/eventList'),
     meta: {
