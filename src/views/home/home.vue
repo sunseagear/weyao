@@ -12,7 +12,7 @@
       <van-grid-item icon="photo-o" text="文字" />
       <van-grid-item icon="photo-o" text="文字" />
     </van-grid>
-    <van-cell :icon="require('../assets/icon/fillet.png')" title="新闻资讯" value="更多" class="newsDetails" @click="newsDetails" />
+    <van-cell icon="newspaper-o" title="新闻资讯" value="更多》" @click="newsDetails" />
     <van-cell-group>
       <van-cell v-for="(item, index) in list.slice(0, 5)" :key="index" @click="toNews(item.id)">
         <div style="display: flex;">
