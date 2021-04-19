@@ -20,7 +20,7 @@
 
 gitee:https://gitee.com/sunseagear/wenyao
 
-[comment]: <> (github:https://github.com/sunseagear/wind)
+github:https://github.com/sunseagear/wenyao
 
 ### 在线预览
 
