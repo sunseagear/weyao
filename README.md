@@ -26,7 +26,7 @@ gitee:https://gitee.com/sunseagear/wenyao
 
 http://www.sunseagear.com/wenyao/
 
-手机扫码代开
+手机浏览器扫码打开，效果更好
 
 ![Image text](http://feilian.oss-cn-beijing.aliyuncs.com/wenyao/doc/weyaoDemo.png)
 
