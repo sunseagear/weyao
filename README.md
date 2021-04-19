@@ -16,21 +16,26 @@
 
 联系作者，加QQ:553671691,或者微信: Dothegod，加人请注明“飞廉”
 
-[comment]: <> (### 源码地址)
+### 源码地址
 
-[comment]: <> (gitee:https://gitee.com/sunseagear/wind)
+gitee:https://gitee.com/sunseagear/wenyao
 
 [comment]: <> (github:https://github.com/sunseagear/wind)
 
-[comment]: <> (### 在线预览)
+### 在线预览
 
-[comment]: <> (http://www.sunseagear.com/dist/)
+http://www.sunseagear.com/wenyao/
+
+手机扫码代开
+
+![Image text](http://feilian.oss-cn-beijing.aliyuncs.com/wenyao/doc/weyaoDemo.png)
+
 
 [comment]: <> (### 在线文档)
 
 [comment]: <> (http://www.sunseagear.com/)
 
-[comment]: <> (    演示系统数据无法修改)
+    演示系统数据无法修改
 ### 仓颉低代码平台全面支持文鳐
 * 一个运行在云端的低代码平台。
 * 能够自动生成单表，树表，展开表，级联表（主子表），左树右表等常见的后台系统页面。
